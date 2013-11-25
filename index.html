@@ -6,11 +6,9 @@
 <link rel="shortcut icon" href="/i/favicon.ico">
 <link href="main.css" rel="stylesheet">
 
-<meta name="keywords" content="South China Sea,China,Philippines,international relations">
-<meta name="news_keywords" content="South China Sea,China,Philippines,international relations">
-<meta itemprop="description" name="description" content="Who Will Win Control of the South China Sea?">
-<link rel="image_src" href="http://graphics8.nytimes.com/newsgraphics/2013/10/27/south-china-sea/d4ddc253fb0e8783d3e57b3c5a189fcd2af63c5b/preview.png">
-
+<meta name="keywords" content="">
+<meta name="news_keywords" content="">
+<meta itemprop="description" name="description" content="">
 <meta name="viewport" content="initial-scale=1,width=device-width,height=device-height,user-scalable=no">
 
 
@@ -59,9 +57,9 @@ await = function() { defers.forEach(function(f) { f(); }); };
 
 })();</script>
 
-<div class="navigation">
+<div class="navigation" id="menu">
   <div class="navigation-left">
-      <img src="i/logo.png" height=60>
+      <img src="i/logo.png" height=60 class="logo">
 
       <div style="font-family:Arial; margin-top:10px; margin-left:20px;">
       <a href="/camps/pag-201405.html">1-10 МАЯ 2014, о. Паг</a>
@@ -72,11 +70,11 @@ await = function() { defers.forEach(function(f) { f(); }); };
   </div>
   <div class="navigation-right">
   <div class="navigation-sections" style="margin-top:7px;">
-      <a href="#1" class="navigation-section" title="Лагерь"><img src="i/1.png" width=25/></a>
-      <a href="#2" class="navigation-section" title="Тренировки"><img src="i/2.png" width=45/></a>
-      <a href="#3" class="navigation-section" title="Отдых"><img src="i/3.png" width=30/></a>
-      <a href="#4" class="navigation-section" title="Впечатления участников"><img src="i/4.png" width=25/></a>
-      <a href="#5" class="navigation-section" title="Записаться"><img src="i/1.png" width=25/></a>
+      <a href="#1" class="navigation-section" title="Лагерь" id="camp-column-link"><img src="i/1.png" width=25/></a>
+      <a href="#2" class="navigation-section" title="Тренировки" id="trainings-column-link"><img src="i/2.png" width=45/></a>
+      <a href="#3" class="navigation-section" title="Отдых"  id="rest-column-link"><img src="i/3.png" width=30/></a>
+      <a href="#4" class="navigation-section" title="Впечатления участников" id="impressions-column-link"><img src="i/4.png" width=25/></a>
+      <a href="#5" class="navigation-section" title="Записаться" id="join-column-link"><img src="i/1.png" width=25/></a>
     </div>
 
     <a href="mailto:train@unitycamp.com" style="font-family:Arial; margin-top:5px; margin-left:30px;">train@unitycamp.com</a>
@@ -141,14 +139,14 @@ function clicked(d, i) {
 <!-- Начало сайта -->
 <div class="main">
   <div class="article">
-    <div class="section video-sequence">
+    <div class="section video-sequence linked" id="camp-column">
       <a class="navigation-marker" id="1"></a>
       <div class="video">
         <div class="video-container">
           <img src="i/20130905_110903.jpg">
         </div>
         <div class="video-caption video-caption--head">
-          <div class="video-headline headline"><img src="i/logo.png"></div>
+          <div class="video-headline headline"><img src="i/logo.png" class="logo" id="big-logo"></div>
           <div class="video-summary">UNITY CAMP — это беговой лагерь, где начинающие и опытные бегуны совершенствуют технику и наслаждаются активным отдыхом</div>
           <div class="scroll-prompt">
             <svg width="18" height="8">
@@ -190,7 +188,7 @@ function clicked(d, i) {
       <p>UNITY RUN CAMP … Тут будет текст про идею лагеря.</p>
     </div>
 
-    <div class="section column">
+    <div class="section column linked" id="trainings-column">
       <a class="navigation-marker" id="2"></a>
       <h3>Тренировки</h3>
       <p>Тренировки очень разнообразны. Три группы, подробо программ с учётом индивидуальных особенностей, корректировка по прогрессу. Разбор техники по видео.</p>
@@ -247,7 +245,7 @@ function clicked(d, i) {
         <div class="video-caption video-caption--long">Растяжка</div>
       </div>
     </div>
-    <div class="section column">
+    <div class="section column linked" id="rest-column">
       <a class="navigation-marker" id="3"></a>
       <h3>Отдых</h3>
       <p>Спорт — спортом, но для гостей лагеря эти дни ещё как правило и долгожданный отпуск. Поэтому помимо изнурительных тренировок их ждёт насыщенная развлекательная программа.</p>
@@ -287,7 +285,7 @@ function clicked(d, i) {
       </div>
     </div>
       
-    <div class="section column" style="max-width: 900px;">
+    <div class="section column linked" style="max-width: 900px;" id="impressions-column">
       <a class="navigation-marker" id="4"></a>
       <h3>Впечатления участников</h3>
       <h4>Осень 2013, Паг</h4>
@@ -327,7 +325,7 @@ function clicked(d, i) {
 
     </div>
 
-    <div class="section column">
+    <div class="section column linked" id="join-column">
       <a class="navigation-marker" id="5"></a>
       <h3>Записаться</h3>
       <p>
@@ -800,3 +798,40 @@ await();
 })();</script>
 
 <!--<![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/scrollspy.js"></script>
+<script>
+$('.linked').on('scrollSpy:enter', function() {
+    $('#' + $(this).attr('id') + '-link').addClass('navigation-section--active');
+});
+
+$('.linked').on('scrollSpy:exit', function() {
+    $('#' + $(this).attr('id') + '-link').removeClass('navigation-section--active');
+});
+
+$('.linked').scrollSpy();
+
+var animating = '';
+var logo = $('#big-logo')
+var menu = $('#menu')
+$(window).scroll(function () {
+    if ((logo.offset().top-60-$(this).scrollTop()) < 0) {
+        if(animating != 'menu' && ( (logo.css("opacity") != 0) || (menu.css("opacity") != 1))) {
+            animating = 'menu'
+            logo.animate({opacity: 0}, 120)
+            menu.animate({opacity: 1}, 120, function () {
+                animating = '';
+            })
+        }
+    } else {
+        if(animating != 'logo' && ((menu.css("opacity") != 0) || (logo.css("opacity") != 1))) {
+            animating = 'logo'
+            logo.animate({opacity: 1}, 120)
+            menu.animate({opacity: 0}, 120, function () {
+                animating = '';
+            })
+        }
+    }
+})
+
+</script>

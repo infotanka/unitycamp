@@ -10,7 +10,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: underline;т
 }
 
 .article {
@@ -1172,4 +1172,8 @@ a:hover {
 .footer-section ~ * {
   position: absolute;
   top: -1000px;
+}
+
+.navigation {
+    opacity: 0;
 }
