@@ -1173,3 +1173,7 @@ a:hover {
   position: absolute;
   top: -1000px;
 }
+
+.navigation {
+    opacity: 0;
+}
